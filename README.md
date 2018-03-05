@@ -4,6 +4,7 @@ The project implements the retry and stats concerns to a tweeting service throug
 
 ## tweet service:
 
+```java
 package edu.sjsu.cmpe275.lab1;
 
 import java.io.IOException;
@@ -12,8 +13,8 @@ public interface TweetService {
    /**
     * @throws IllegalArgumentException if the message is more than 140 characters as measured by string length.
     * @throws IOException if there is a network failure
-    */
-   void tweet(String user, String message) throws IllegalArgumentException, IOException;
+    */  
+    void tweet(String user, String message) throws IllegalArgumentException, IOException;
 
    /**
     * @throws IOException if there is a network failure
@@ -24,13 +25,14 @@ public interface TweetService {
     * @throws IOException if there is a network failure
     */
    void block(String user, String followee) throws IOException;
-
 }
+```
 
 Since network failure happens relatively frequently, you are asked to add the feature to automatically retry for up to three times for a network failure (indicated by an IOException).  
 
 ## TweetStats service:
 
+```java
 package edu.sjsu.cmpe275.lab1;
 
 public interface TweetStats {
@@ -65,8 +67,8 @@ public interface TweetStats {
      *     	If no follower has been successfully blocked by anyone, return null.
      */
     String getMostBlockedFollower();
-
 }
+```
 
 ### The following examples are assuming stats are reset() before running every single example. 
 1.	Tweet message as tweet(“foo”,”barbar”). Then getLengthOfLongestTweetAttempted() returns 6.
